@@ -1,15 +1,4 @@
 ﻿/*
-Esercizio 1 : classi astratte
-Dobbiamo realizzare un programma che rappresenti il regno animale.
-Creiamo quindi una classe astratta Animale e delle classi che la estendono : Cane, Passerotto, Aquila, Delfino
-Vogliamo che gli animali abbiano i seguenti metodi
-void Dormi() (mostra a video “Zzz”)
-void Verso() (mostra a video il verso fatto dall'animale specifico)
-void Mangia() (mostra a video quello che mangia : erba, carne, ...?)
-Quali di questi metodi devono essere implementati nella classe astratta e quali devono essere lasciati astratti e implementati dalle classi che la estendono?
-Una volta create le classi, nel programma istanziare alcuni animali e utilizzare i metodi implementati.
-
-
 Esercizio 2 : interfacce 
 Alcuni degli animali che abbiamo creato volano, altri nuotano.
 Gli animali che volano hanno il seguente metodo :
@@ -38,10 +27,10 @@ namespace csharp_abstract_animals
 
             //cane.Verso(); -> Void
 
-            Console.WriteLine($"Il Cane fa '{cane.Verso()}' e dorme '{cane.Dormi()}'"); 
-            Console.WriteLine($"Il Passerotto fa '{passerotto.Verso()}' e dorme '{passerotto.Dormi()}'"); 
-            Console.WriteLine($"L'Aquila fa '{aquila.Verso()}' e dorme '{aquila.Dormi()}'"); 
-            Console.WriteLine($"Il Delfino fa '{delfino.Verso()}' e dorme '{delfino.Dormi()}'"); 
+            Console.WriteLine($"Il Cane fa {cane.Verso()} Mangia {cane.Mangia()} e dorme {cane.Dormi()}"); 
+            Console.WriteLine($"Il Passerotto fa {passerotto.Verso()} Mangia {passerotto.Mangia()} e dorme {passerotto.Dormi()}"); 
+            Console.WriteLine($"L'Aquila fa {aquila.Verso()} Mangia {aquila.Mangia()} e dorme {aquila.Dormi()}"); 
+            Console.WriteLine($"Il Delfino fa {delfino.Verso()} Mangia {delfino.Mangia()} e dorme {delfino.Dormi()}"); 
         }
 
         // Classe astratta Animale
@@ -55,6 +44,10 @@ namespace csharp_abstract_animals
 
             // Metodo astratto Verso
             public abstract string Verso();
+
+            // Metodo Mangia
+            public abstract string Mangia();
+            
         }
 
         // Classe Cane che estende Animale
@@ -64,6 +57,12 @@ namespace csharp_abstract_animals
             public override string Verso()
             {
                 return "Bau!";
+            }
+
+            // Implementazione del metodo Mangia specifico per il Cane
+            public override string Mangia()
+            {
+                return "Carne";
             }
         }
 
@@ -75,6 +74,12 @@ namespace csharp_abstract_animals
             {
                 return "Cip Cip!";
             }
+
+            // Implementazione del metodo Mangia specifico per il Passerotto
+            public override string Mangia()
+            {
+                return "Semi e insetti";
+            }
         }
 
         // Classe Aquila che estende Animale
@@ -85,6 +90,12 @@ namespace csharp_abstract_animals
             {
                 return "Creeee!";
             }
+
+            // Implementazione del metodo Mangia specifico per l'Aquila
+            public override string Mangia()
+            {
+                return "Altri animali";
+            }
         }
 
         // Classe Delfino che estende Animale
@@ -94,6 +105,12 @@ namespace csharp_abstract_animals
             public override string Verso()
             {
                 return "Eeek eek!";
+            }
+
+            // Implementazione del metodo Mangia specifico per il Delfino
+            public override string Mangia()
+            {
+                return "Pesci e calamari";
             }
         }
     }
