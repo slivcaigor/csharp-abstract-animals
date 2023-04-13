@@ -28,37 +28,73 @@ namespace csharp_abstract_animals
     {
         static void Main(string[] args)
         {
+            // Creiamo un'istanza di ogni animale
+            Cane cane = new();
+            Passerotto passerotto = new();
+            Aquila aquila = new();
+            Delfino delfino = new();
 
+            // Stampiamo a video il verso fatto dall'animale
+
+            //cane.Verso(); -> Void
+
+            Console.WriteLine($"Il Cane fa '{cane.Verso()}' e dorme '{cane.Dormi()}'"); 
+            Console.WriteLine($"Il Passerotto fa '{passerotto.Verso()}' e dorme '{passerotto.Dormi()}'"); 
+            Console.WriteLine($"L'Aquila fa '{aquila.Verso()}' e dorme '{aquila.Dormi()}'"); 
+            Console.WriteLine($"Il Delfino fa '{delfino.Verso()}' e dorme '{delfino.Dormi()}'"); 
         }
 
         // Classe astratta Animale
         public abstract class Animale
         {
+            // Metodo Dormi
+            public string Dormi()
+            {
+                return "Zzz";
+            }
 
+            // Metodo astratto Verso
+            public abstract string Verso();
         }
 
         // Classe Cane che estende Animale
         public class Cane : Animale
         {
-
+            // Implementazione del metodo Verso specifico per il Cane
+            public override string Verso()
+            {
+                return "Bau!";
+            }
         }
 
         // Classe Passerotto che estende Animale
         public class Passerotto : Animale
         {
-
+            // Implementazione del metodo Verso specifico per il Passerotto
+            public override string Verso()
+            {
+                return "Cip Cip!";
+            }
         }
 
         // Classe Aquila che estende Animale
         public class Aquila : Animale
         {
-
+            // Implementazione del metodo Verso specifico per l'Aquila
+            public override string Verso()
+            {
+                return "Creeee!";
+            }
         }
 
         // Classe Delfino che estende Animale
         public class Delfino : Animale
         {
-
+            // Implementazione del metodo Verso specifico per il Delfino
+            public override string Verso()
+            {
+                return "Eeek eek!";
+            }
         }
     }
 }
